@@ -8,7 +8,7 @@ import { Container, Logo } from '../';
 
 import styles from './styles.module.scss';
 
-const Header = ({ phone }) => {
+const Header = ({ phone, service }) => {
   const [shadow, setShadow] = useState(false);
 
   const handleScroll = () => {
@@ -25,7 +25,7 @@ const Header = ({ phone }) => {
     <header className={classNames(styles.header, shadow && styles.shadow)}>
       <Container>
         <div className={styles.header__inner}>
-          <Logo />
+          <Logo service={service} />
 
           <div className={styles.links}>
             <a href={`tel:${phone}`} className={styles.phone}>

@@ -29,7 +29,7 @@ const Layout = ({ phone, pageTitle, children }) => {
 
   return (
     <Fragment>
-      <Header phone={phone} />
+      <Header phone={phone} service={pageTitle} />
       <main>{children}</main>
       <Footer />
       <MobileButtons phone={phone} isVisible={isVisible} />
