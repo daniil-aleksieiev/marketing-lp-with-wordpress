@@ -4,6 +4,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 
 import { Spinner } from './components';
 
+import Home from './pages/Home';
 import PageTemplate from './pages/PageTemplate';
 
 const App = () => {
@@ -46,7 +47,7 @@ const App = () => {
 
   return (
     <Routes>
-      <Route path="/" element={<div>HOME</div>} />
+      <Route path="/" element={<Home cities={categories.data} pages={pages.data} />} />
 
       <Route path="*" element={<Navigate replace to="/404" />} />
 
