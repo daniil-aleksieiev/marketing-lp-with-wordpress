@@ -1,0 +1,75 @@
+@import '../../styles/helpers/index.scss';
+
+.hero {
+  padding: 30px 0 0;
+
+  &__inner {
+    @include grid;
+  }
+}
+
+.content {
+  @include tablet {
+    text-align: center;
+  }
+
+  .title {
+    line-height: 1.1;
+    font-size: 6em;
+    font-weight: bold;
+
+    @include tablet {
+      font-size: 4em;
+    }
+  }
+
+  .subtitle {
+    margin: 15px 0 0;
+    font-size: 2.5em;
+    font-weight: bold;
+  }
+}
+
+.image {
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.reasons {
+  margin: 70px 0 0;
+
+  @include grid($columns: 3);
+
+  @include tablet {
+    margin: 30px 0 0;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  & > div {
+    .icon {
+      @include flex-centering;
+      @include circle(60px);
+      font-size: 32px;
+      background-color: map-get($colors, 'primary');
+      color: #fff;
+
+      @include tablet {
+        @include square(40px);
+        font-size: 24px;
+        margin: 0 auto;
+      }
+    }
+
+    p {
+      margin: 15px 0 0;
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 1.24;
+      text-transform: uppercase;
+
+      @include tablet {
+        font-size: 14px;
+      }
+    }
+  }
+}
