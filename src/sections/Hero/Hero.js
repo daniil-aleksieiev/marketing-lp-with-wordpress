@@ -52,6 +52,14 @@ const Hero = ({ title, image, location }) => (
           <img src={image} alt={title} />
         </div>
       </div>
+
+      <div className={styles.badges}>
+        <img src="../assets/badges/1.svg" alt="Award #1" />
+        <img src="../assets/badges/2.svg" alt="Award #2" />
+        <img src="../assets/badges/3.svg" alt="Award #3" />
+        <img src="../assets/badges/4.svg" alt="Award #4" />
+        <img src="../assets/badges/5.svg" alt="Award #5" />
+      </div>
     </Container>
   </section>
 );
