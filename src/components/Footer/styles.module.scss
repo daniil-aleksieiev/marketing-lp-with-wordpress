@@ -1,0 +1,48 @@
+@import '../../styles/helpers/index.scss';
+
+.footer {
+  background-color: map-get($colors, 'accent');
+
+  &__inner {
+    padding: 40px 0 20px;
+
+    @include tablet {
+      padding: 30px 0 80px;
+    }
+  }
+}
+
+.payments {
+  @include flex-centering;
+  @include gap-horizontal(15px);
+
+  user-select: none;
+}
+
+.underline {
+  margin: 40px 0 0;
+  text-align: center;
+  font-size: 14px;
+
+  @include tablet {
+    margin: 30px 0 0;
+    font-size: 12px;
+  }
+
+  a {
+    display: block;
+    margin: 15px 0 0;
+    text-decoration: none;
+    color: map-get($colors, 'text');
+
+    &:hover {
+      strong {
+        text-decoration: underline;
+      }
+    }
+
+    strong {
+      font-weight: bold;
+    }
+  }
+}

@@ -1,0 +1,12 @@
+@import '../../styles/helpers/index.scss';
+
+.container {
+  @include max-width(calc($desktop-sm + 40px));
+  position: relative;
+  margin: 0 auto;
+  height: inherit;
+
+  @include tablet {
+    padding: 0 15px;
+  }
+}

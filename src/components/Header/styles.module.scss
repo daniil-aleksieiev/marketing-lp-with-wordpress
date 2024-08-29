@@ -1,0 +1,107 @@
+@import '../../styles/helpers/index.scss';
+
+.header {
+  position: fixed;
+  width: 100%;
+  padding: 30px 0;
+
+  background-color: map-get($colors, 'background');
+
+  transition: all 0.3s ease;
+
+  z-index: 2;
+
+  @include tablet {
+    padding: 15px 0;
+  }
+
+  &.shadow {
+    box-shadow: 0px 5px 15px 0px rgba(#000, 0.5);
+  }
+
+  &__inner {
+    @include align-center;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+.links {
+  @include align-center;
+  @include gap-horizontal(30px);
+
+  &__mobile {
+    display: none;
+    @include gap-horizontal(15px);
+
+    @include tablet {
+      @include align-center;
+    }
+
+    & > a {
+      @include circle(50px);
+      @include flex-centering;
+      font-size: 20px;
+
+      background-color: map-get($colors, 'accent');
+      border: 1px solid map-get($colors, 'primary');
+      color: map-get($colors, 'primary');
+    }
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.phone {
+  display: flex;
+  align-items: flex-end;
+  @include gap-horizontal(15px);
+
+  @include tablet {
+    display: none;
+  }
+
+  &:hover {
+    span {
+      color: map-get($colors, 'primary');
+    }
+  }
+
+  &__icon {
+    font-size: 1.75em;
+    color: map-get($colors, 'primary');
+  }
+
+  span {
+    font-weight: 700;
+    font-size: 2em;
+    color: map-get($colors, 'text');
+
+    transition: color 0.3s ease;
+  }
+}
+
+.cta {
+  padding: 14px 24px;
+
+  font-weight: 700;
+  font-size: 18px;
+  text-transform: uppercase;
+
+  border-radius: 30px;
+
+  background-color: map-get($colors, 'primary');
+  color: #fff;
+
+  transition: all 0.3s ease;
+
+  @include tablet {
+    display: none;
+  }
+
+  &:hover {
+    background-color: map-get($colors, 'text');
+  }
+}

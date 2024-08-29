@@ -1,0 +1,186 @@
+// RESPONSIVE
+@mixin tablet {
+  @media only screen and (max-width: $tablet-md) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media only screen and (max-width: $tablet-md) {
+    @content;
+  }
+}
+
+// MARKUP
+@mixin grid($row-gap: 20px, $column-gap: 20px, $rows: 1fr, $columns: 2) {
+  display: grid;
+  grid-template-rows: $rows;
+  grid-template-columns: repeat($columns, 1fr);
+  grid-row-gap: $row-gap;
+  grid-column-gap: $column-gap;
+
+  @include tablet {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@mixin flex-centering {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+@mixin space-around {
+  display: flex;
+  justify-content: space-around;
+}
+
+@mixin align-center {
+  display: flex;
+  align-items: center;
+}
+
+@mixin gap-horizontal($margin: 0) {
+  & > *:not(:last-child) {
+    margin: 0 $margin 0 0;
+  }
+}
+
+@mixin gap-vertical($margin: 0) {
+  & > *:not(:last-child) {
+    margin: 0 0 $margin 0;
+  }
+}
+
+@mixin absolute($top: 0, $left: auto, $right: auto, $bottom: auto) {
+  position: absolute;
+
+  top: $top;
+  bottom: $bottom;
+  left: $left;
+  right: $right;
+}
+
+@mixin absolute-centering($left: 0) {
+  position: absolute;
+  top: 50%;
+  left: $left;
+
+  @if $left == 50% {
+    transform: translate(-50%, -50%);
+  } @else {
+    transform: translateY(-50%);
+  }
+}
+
+// RESPONSIVE FONT
+@mixin responsive-font($size: 16px, $line-height: 1.5) {
+  font-size: $size;
+  line-height: $line-height;
+
+  @include tablet {
+    font-size: 0.5em;
+  }
+}
+
+@mixin ellipsis {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+// HOVER
+@mixin scale {
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+@mixin hover-invert($bg, $color) {
+  background-color: $bg;
+  border: 1px solid $bg;
+  color: $color;
+
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: $color;
+    color: $bg;
+  }
+}
+
+@mixin underline {
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// SIZES
+@mixin pseudo-size($width: 20px, $height: 20px) {
+  content: '';
+
+  width: $width;
+  height: $height;
+}
+
+@mixin max-width($width: 0) {
+  max-width: $width;
+
+  @include tablet {
+    max-width: unset;
+  }
+}
+
+@mixin square($width) {
+  width: $width;
+  height: $width;
+}
+
+@mixin circle($width) {
+  width: $width;
+  height: $width;
+
+  border-radius: 50%;
+}
+
+@mixin columns($desktop: 3, $mobile: 2) {
+  columns: $desktop;
+
+  @include tablet {
+    columns: $mobile;
+  }
+}
+
+// OTHER
+@mixin background-image($url: '', $size: cover) {
+  background-image: url($url);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: $size;
+}
+
+@mixin list-disk {
+  list-style-type: disc;
+  padding: 0 0 0 15px;
+}
+
+@mixin list-number {
+  list-style-type: decimal;
+  padding: 0 0 0 15px;
+}
+
+@mixin flex-line($horizontal-gap: 15px, $vertical-gap: 15px) {
+  @include align-center;
+  @include gap-horizontal($gap);
+
+  @include mobile {
+    @include gap-vertical($vertical-gap);
+  }
+}
