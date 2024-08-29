@@ -1,0 +1,68 @@
+@import '../../styles/helpers/index.scss';
+
+.cta {
+  &__inner {
+    padding: 85px 50px;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #4a90e2 0%, #b5c9e0 100%);
+    color: #fff;
+
+    @include tablet {
+      padding: 45px 20px;
+    }
+
+    h2 {
+      font-size: 4em;
+      font-weight: 700;
+      text-transform: capitalize;
+
+      @include tablet {
+        font-size: 2em;
+        text-align: center;
+      }
+    }
+  }
+}
+
+.links {
+  @include align-center;
+  @include gap-horizontal(15px);
+  margin: 30px 0 0;
+  font-size: 24px;
+  font-weight: 700;
+
+  @include tablet {
+    @include gap-vertical(15px);
+    flex-direction: column;
+    font-size: 18px;
+  }
+
+  & > a {
+    text-decoration: none;
+    padding: 12px 22px;
+    font-weight: 700;
+    font-size: 18px;
+    text-transform: uppercase;
+    border-radius: 30px;
+    border: 1px solid map-get($colors, 'secondary');
+    background-color: map-get($colors, 'secondary');
+    color: #fff;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: #fff;
+      color: map-get($colors, 'secondary');
+    }
+  }
+
+  span {
+    a {
+      color: #fff;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
